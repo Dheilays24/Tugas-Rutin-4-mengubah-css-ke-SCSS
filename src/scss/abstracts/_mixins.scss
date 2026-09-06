@@ -1,0 +1,54 @@
+// =========================================================
+// ABSTRACTS / MIXINS
+// =========================================================
+@use "sass:map";
+@use "variables" as *;
+
+// 1) Generate CSS custom properties dari sebuah Sass map.
+//    Ini yang dipakai untuk light/dark theme (--ink, --paper, dst).
+//    Berisi @each loop di dalamnya -> reusable di dua tempat (light & dark).
+@mixin theme-vars($map) {
+  @each $name, $value in $map {
+    --#{$name}: #{$value};
+  }
+}
+
+// 2) Media query helper berbasis map $breakpoints.
+@mixin respond-to($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (max-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint `#{$breakpoint}` tidak ditemukan di $breakpoints.";
+  }
+}
+
+// 3) Flexbox shorthand yang sering dipakai berulang (header, nav, hero-buttons, dll).
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+
+  @if $gap != 0 {
+    gap: $gap;
+  }
+}
+
+// 4) Varian tombol (.btn-primary / .btn-secondary) tanpa duplikasi kode.
+@mixin button-variant($bg, $color, $border, $hover-bg) {
+  background-color: $bg;
+  color: $color;
+  border: 1px solid $border;
+
+  &:hover {
+    background-color: $hover-bg;
+  }
+}
+
+// 5) Permukaan kartu (card, gallery figure, quick-facts item) yang berulang.
+@mixin card-surface($radius: 0.8rem) {
+  background-color: var(--paper-alt);
+  border-radius: $radius;
+}

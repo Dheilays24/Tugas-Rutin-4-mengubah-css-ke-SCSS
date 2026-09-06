@@ -1,0 +1,43 @@
+// =========================================================
+// COMPONENTS / GALLERY
+// Loop @for dipakai untuk stagger transition-delay tiap
+// figure ke-n, jadi efek hover/muncul terasa berurutan
+// tanpa menulis nth-child manual satu-satu.
+// =========================================================
+@use "../abstracts" as *;
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+
+  figure {
+    @include card-surface;
+    overflow: hidden;
+    transition: transform 0.25s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  figcaption {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+    color: var(--accent-dark);
+    font-style: italic;
+  }
+
+  // @for loop: beri transition-delay bertingkat untuk 6 figure pertama
+  @for $i from 1 through 6 {
+    figure:nth-child(#{$i}) {
+      transition-delay: #{$i * 0.03}s;
+    }
+  }
+}

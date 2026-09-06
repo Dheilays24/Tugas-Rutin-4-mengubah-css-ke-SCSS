@@ -1,0 +1,43 @@
+// =========================================================
+// LAYOUT / HEADER & NAVIGATION
+// =========================================================
+@use "../abstracts" as *;
+
+.site-header {
+  @include flex($justify: space-between, $align: center, $gap: 1rem);
+  flex-wrap: wrap;
+  padding: 1.2rem 5%;
+  background-color: var(--paper);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  .logo a {
+    text-decoration: none;
+    font-family: $font-display;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--ink);
+  }
+}
+
+.main-nav {
+  ul {
+    list-style: none;
+    @include flex($justify: flex-start, $align: center, $gap: 1.4rem);
+    flex-wrap: wrap;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: var(--ink);
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+
+    &:hover {
+      border-bottom-color: var(--accent);
+    }
+  }
+}

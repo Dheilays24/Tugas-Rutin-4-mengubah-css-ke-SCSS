@@ -1,0 +1,35 @@
+// =========================================================
+// MAIN.SCSS
+// Entry point 7-1 pattern. Hanya @use, tidak ada @import.
+// Urutan penting: abstracts tidak menghasilkan CSS (hanya lewat
+// @forward), base dulu, lalu vendors, layout, components,
+// pages, terakhir themes (agar var(--x) override berjalan benar
+// walau custom property dievaluasi saat runtime oleh browser).
+// =========================================================
+
+// 1. Vendors (reset pihak ketiga - kosong untuk saat ini)
+@use "vendors/index";
+
+// 2. Base
+@use "base/reset";
+@use "base/typography";
+@use "base/base";
+
+// 3. Themes (mendefinisikan CSS custom properties di :root)
+@use "themes/dark-mode";
+
+// 4. Layout
+@use "layout/header";
+@use "layout/hero";
+@use "layout/section";
+@use "layout/footer";
+
+// 5. Components
+@use "components/buttons";
+@use "components/table";
+@use "components/cards";
+@use "components/gallery";
+@use "components/forms";
+
+// 6. Pages
+@use "pages/home";

@@ -1,0 +1,30 @@
+// =========================================================
+// COMPONENTS / CARDS & TIMELINE
+// =========================================================
+@use "../abstracts" as *;
+
+.timeline-item {
+  border-left: 3px solid var(--accent);
+  padding-left: 1.5rem;
+}
+
+.timeline-date {
+  font-weight: bold;
+  color: var(--accent-dark);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  @include card-surface;
+  padding: 1.6rem;
+
+  ul {
+    margin-left: 1.2rem;
+    margin-top: 0.5rem;
+  }
+}

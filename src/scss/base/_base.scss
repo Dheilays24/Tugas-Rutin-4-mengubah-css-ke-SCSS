@@ -1,0 +1,28 @@
+// =========================================================
+// BASE / GLOBAL ELEMENTS
+// =========================================================
+@use "../abstracts" as *;
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  color: var(--accent-dark);
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 1rem;
+
+  &:focus {
+    left: 0;
+    z-index: 100;
+  }
+}

@@ -1,0 +1,61 @@
+// =========================================================
+// ABSTRACTS / VARIABLES
+// Semua nilai mentah (colors, spacing, font, breakpoint)
+// disimpan sebagai Sass Map agar bisa di-loop dengan @each.
+// =========================================================
+
+// ---- Colors: Light theme ----
+$color-light: (
+  "ink": #1f2320,
+  "paper": #f6f4ee,
+  "paper-alt": #eeebe1,
+  "accent": #3c6e47,
+  "accent-dark": #294c31,
+  "line": #d8d3c4,
+);
+
+// ---- Colors: Dark theme ----
+$color-dark: (
+  "ink": #ece9df,
+  "paper": #181a17,
+  "paper-alt": #23261f,
+  "accent": #6fae7f,
+  "accent-dark": #a3d6ae,
+  "line": #3a3d34,
+);
+
+// ---- Typography ----
+$font-display: "Georgia", "Times New Roman", serif;
+$font-body: "Helvetica Neue", Arial, sans-serif;
+
+// ---- Spacing scale (dipakai lewat @each di components/layout) ----
+$spacing: (
+  "xs": 0.5rem,
+  "sm": 0.8rem,
+  "md": 1.2rem,
+  "lg": 1.6rem,
+  "xl": 2.5rem,
+  "xxl": 4rem,
+);
+
+// ---- Breakpoints ----
+$breakpoints: (
+  "mobile": 768px,
+);
+
+// ---- Tombol: bg & warna teks per varian ----
+// (dipakai dengan @each di components/_buttons.scss)
+$buttons: (
+  "primary": (
+    "bg": var(--accent),
+    "color": #fff,
+    "border": var(--accent),
+    "hover-bg": var(--accent-dark),
+  ),
+  "secondary": (
+    "bg": transparent,
+    "color": var(--accent-dark),
+    "border": var(--accent),
+    "hover-bg": var(--paper-alt),
+  ),
+);

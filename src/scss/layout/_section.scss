@@ -1,0 +1,21 @@
+// =========================================================
+// LAYOUT / SECTION WRAPPER
+// =========================================================
+@use "../abstracts" as *;
+
+.section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem 5%;
+  border-top: 1px solid var(--line);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 3rem;
+
+  @include respond-to("mobile") {
+    grid-template-columns: 1fr;
+  }
+}

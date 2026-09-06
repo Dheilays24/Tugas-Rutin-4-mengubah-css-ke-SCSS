@@ -1,0 +1,28 @@
+// =========================================================
+// COMPONENTS / BUTTONS
+// Loop @each dipakai untuk generate .btn-primary & .btn-secondary
+// langsung dari map $buttons -> tidak ada duplikasi kode.
+// =========================================================
+@use "sass:map";
+@use "../abstracts" as *;
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+@each $name, $props in $buttons {
+  .btn-#{$name} {
+    @include button-variant(
+      map.get($props, "bg"),
+      map.get($props, "color"),
+      map.get($props, "border"),
+      map.get($props, "hover-bg")
+    );
+  }
+}

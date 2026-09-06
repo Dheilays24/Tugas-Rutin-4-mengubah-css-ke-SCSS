@@ -1,0 +1,27 @@
+// =========================================================
+// LAYOUT / FOOTER
+// =========================================================
+@use "../abstracts" as *;
+
+.site-footer {
+  text-align: center;
+  padding: 3rem 5%;
+  border-top: 1px solid var(--line);
+  background-color: var(--paper-alt);
+
+  nav ul {
+    list-style: none;
+    @include flex($justify: center, $gap: 1.2rem);
+    margin: 1rem 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--ink);
+  }
+}
+
+.back-to-top {
+  font-weight: bold;
+  color: var(--accent-dark);
+}

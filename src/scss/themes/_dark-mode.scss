@@ -1,0 +1,70 @@
+// =========================================================
+// THEMES / DARK MODE
+// Toggle murni CSS (checkbox + :has()), tanpa JS.
+// Variabel warna di-generate dari Sass map lewat @each
+// (lihat mixin theme-vars di abstracts/_mixins.scss).
+// =========================================================
+@use "../abstracts" as *;
+
+:root {
+  @include theme-vars($color-light);
+}
+
+body:has(#dark-toggle:checked) {
+  @include theme-vars($color-dark);
+
+  .contact-form {
+    input,
+    textarea {
+      background-color: var(--paper-alt);
+      color: var(--ink);
+    }
+  }
+
+  .site-header {
+    background-color: var(--paper);
+  }
+}
+
+// ---- Checkbox + label toggle (ikon matahari/bulan) ----
+.dark-toggle-checkbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dark-toggle-label {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.2rem;
+  z-index: 50;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: var(--paper-alt);
+  border: 1px solid var(--line);
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  @include flex($justify: center, $align: center);
+
+  &:hover {
+    transform: scale(1.08);
+  }
+}
+
+.toggle-icon-moon {
+  display: none;
+}
+
+#dark-toggle:checked ~ .dark-toggle-label {
+  .toggle-icon-sun {
+    display: none;
+  }
+
+  .toggle-icon-moon {
+    display: inline;
+  }
+}

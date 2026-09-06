@@ -1,0 +1,49 @@
+// =========================================================
+// COMPONENTS / TABLE & QUICK FACTS
+// =========================================================
+@use "../abstracts" as *;
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0 2.5rem;
+
+  th,
+  td {
+    text-align: left;
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  th {
+    width: 40%;
+    font-weight: 600;
+    color: var(--accent-dark);
+  }
+}
+
+.quick-facts {
+  list-style: none;
+  counter-reset: fact;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+
+  li {
+    counter-increment: fact;
+    @include card-surface(0.6rem);
+    padding: 1rem 1.2rem;
+    position: relative;
+    padding-left: 2.8rem;
+
+    &::before {
+      content: counter(fact, decimal-leading-zero);
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      font-family: $font-display;
+      color: var(--accent);
+      font-weight: bold;
+    }
+  }
+}

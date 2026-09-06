@@ -1,0 +1,45 @@
+// =========================================================
+// LAYOUT / HERO
+// =========================================================
+@use "../abstracts" as *;
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 5rem 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @include respond-to("mobile") {
+    grid-template-columns: 1fr;
+    padding: 3rem 6%;
+  }
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--accent-dark);
+  margin-bottom: 1.2rem;
+}
+
+.hero-buttons {
+  @include flex($gap: 1rem);
+  margin-top: 1.5rem;
+}
+
+.hero-photo {
+  @include respond-to("mobile") {
+    order: -1;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  img {
+    border-radius: 1rem;
+    border: 1px solid var(--line);
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+}
